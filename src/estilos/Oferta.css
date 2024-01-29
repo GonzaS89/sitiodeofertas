@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+:root{
+
+    --fuentePrincipal : 'DM Serif Display', serif;
+
+    --cajasombreadaIzquierdaYAbajo : 10px 10px 5px 0px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.234);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(255, 255, 255, 0.045);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.contenedor-oferta{
+    display: flex;
+    flex-direction: column;;
+    width: 350px;
+    min-height: 400px;
+    /* background: #F8FAE5;  */
+   background: rgb(209,128,128);
+background: linear-gradient(180deg, rgba(209,128,128,1) 10%, rgba(253,240,209,1) 50%, rgba(253,240,209,1) 100%);
+    box-shadow: var(--cajasombreadaIzquierdaYAbajo);
+    border-radius: 15px;
+}
+
+.contenedor-imagen-oferta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;  
+    && img{
+        width: 75%;
+        height: 75%;
+    }
+}
+
+.contenedor-detalle-oferta {
+    height: 50%;
+    /* background: #F8FAE5; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--fuentePrincipal);
+    text-transform: uppercase;
+    && h1{font-size: 25px}
+    h2{font-size: 45px;}
+    h3{font-size: 12px;text-align: left;}
+}
+
+.titulo-oferta{
+    position: absolute;
+    top: 0;
+}
+.comercio-oferta{
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    && h3{text-align: center;font-size: 15px;}
+}
+
+.comercio-nombre-ubicacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    && img{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
