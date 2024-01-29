@@ -32,12 +32,12 @@ function App() {
         domicilioComercio = 'B° La Villa'
         rubro = 'verduleria'/>
         <Oferta 
-        imagen = 'papas'
-        tituloOferta = '3 Kgs de papas'
-        precioOferta = '1500'
-        comercioOferta = 'Verduleria Carlos'
-        domicilioComercio = 'B° La Villa'
-        rubro = 'verduleria'/>
+        imagen = 'supremas'
+        tituloOferta = '1 kg de supremas'
+        precioOferta = '3500'
+        comercioOferta = 'Pollería Jorge'
+        domicilioComercio = 'B° Paraiso'
+        rubro = 'polleria'/>
       </div>
       
     </div>
