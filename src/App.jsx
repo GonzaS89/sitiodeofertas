@@ -11,15 +11,6 @@ let listaDeRubros = [];
   listaDeRubros.push(producto.rubro)
 })}
 
-function contadorProductos (array, elemento) {
-    let contador;
-    for (let i = 0; i < array.length; i++) {
-        if(array.includes(elemento)) {contador++};
-    }
-    
-}
-
-
 function App() {
   return (
 
@@ -27,10 +18,9 @@ function App() {
       <Header />
       <div className='contenedor-principal'>
         <div className='contenedor-filtros'>
-            {listaDeRubros.map( rubro => 
-                < Rubro 
-                nombreRubro = {rubro}
-                cantidadProductos = {contadorProductos(listaDeRubros,rubro)}/>
+            {listaDeRubros.map(rubro => 
+                <Rubro 
+                nombreRubro = {rubro}/>
             )}
             
         </div>
