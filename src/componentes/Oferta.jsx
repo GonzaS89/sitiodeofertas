@@ -4,6 +4,9 @@ import '../estilos/Oferta.css'
 function Oferta (props) {
     return (
         <div className='contenedor-oferta'>
+            <div className='logo-oferta'>
+                <img src={require('../iconos/logo-oferta.png')}/>
+            </div>
             <div
             className='contenedor-imagen-oferta'>
                 <img 

@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  background: #FFFC9B;
+  background: #FFF3CF;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   /* justify-content: center; */
 }
 
@@ -19,13 +19,26 @@
   }
 }
 
+.contenedor-principal{
+  display: flex;
+  justify-content: baseline;
+  position: relative;
+  height: 100vh;
+}
+
+.contenedor-filtros{
+  width: 300px;
+  background: #F2EFE5;
+  border-right: 5px solid rgba(128, 128, 128, 0.135);
+}
+
 .listado-ofertas{
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  margin: 10px;
+  gap: 40px;
+  margin: 30px 10px;
 }
 
 

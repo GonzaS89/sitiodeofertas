@@ -1,0 +1,20 @@
+[
+    {
+        "imagen" : "vacio",
+        "producto" : "1 kg de vacío",
+        "precio" : 5000,
+        "comercio" : "Carnicería Supercarnes",
+        "domicilioComercio" : "Capitán Jaime Sola - B° La Cancha",
+        "rubro" : "carniceria"
+
+    },
+    {
+        "imagen" : "patamuslo",
+        "producto" : "3 kgs de patamuslo",
+        "precio" : 3800,
+        "comercio" : "Polleria Pollo",
+        "domicilioComercio" : "B° La Avenida",
+        "rubro" : "polleria"
+
+    }
+]
