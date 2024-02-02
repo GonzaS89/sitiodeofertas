@@ -7,9 +7,25 @@ import data from './data.json';
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 let listaDeRubros = [];
-{data.map (producto => {
+data.map (producto => {
   listaDeRubros.push(producto.rubro)
-})}
+})
+
+let contador;
+
+const contar = ()=> {
+  for (let i = 0; i < listaDeRubros.length; i++) {
+    const element = listaDeRubros[i];
+    if('carniceria' == element){contador++; return contador;}
+  }
+  
+}
+
+contar()
+console.log(contador)
+
+
+
 
 function App() {
   return (
