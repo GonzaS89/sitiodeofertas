@@ -15,6 +15,31 @@
         "comercio" : "Polleria Pollo",
         "domicilioComercio" : "B° La Avenida",
         "rubro" : "polleria"
-
+    },
+    {
+        "imagen" : "supremas",
+        "producto" : "1 Kg de Supremas",
+        "precio" : 3000,
+        "comercio" : "Polleria Carlos",
+        "domicilioComercio" : "B° La Cancha",
+        "rubro" : "polleria"
+    },
+    {
+        "imagen" : "papas",
+        "producto" : "3 Kgs de Papas",
+        "precio" : 1000,
+        "comercio" : "Verduleria Del Valle",
+        "domicilioComercio" : "B° Tres Luces",
+        "rubro" : "verduleria"
+    },
+    {
+        "imagen" : "yogurt1lmanfrey",
+        "producto" : "Yogurt de 1 ltr Manfrey",
+        "precio" : 800,
+        "comercio" : "Despensa El Perro",
+        "domicilioComercio" : "B° La Flor",
+        "rubro" : "lacteos"
     }
+    
+
 ]

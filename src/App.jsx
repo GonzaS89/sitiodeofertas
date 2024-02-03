@@ -4,27 +4,26 @@ import Header from './componentes/Header';
 import Rubro from './componentes/Rubro';
 import Oferta from './componentes/Oferta';
 import data from './data.json';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 let listaDeRubros = [];
-data.map (producto => {
-  listaDeRubros.push(producto.rubro)
+data.forEach (producto => {
+  if(!listaDeRubros.includes(producto.rubro)) listaDeRubros.push(producto.rubro)
 })
 
-let contador;
+let listaDeRubrosRepetidos = [];
+data.forEach(productos => {
+  listaDeRubrosRepetidos.push(productos.rubro)
+})
 
-const contar = ()=> {
-  for (let i = 0; i < listaDeRubros.length; i++) {
-    const element = listaDeRubros[i];
-    if('carniceria' == element){contador++; return contador;}
+
+const contadorDeRubros = (array,rubro) => {
+  let contador = 0;
+  for (let i = 0; i < array.length; i++) {
+    const elemento = array[i];
+    if(rubro == elemento) contador++;
   }
-  
+  return contador
 }
-
-contar()
-console.log(contador)
-
-
 
 
 function App() {
@@ -34,11 +33,12 @@ function App() {
       <Header />
       <div className='contenedor-principal'>
         <div className='contenedor-filtros'>
+          <h1 className="titulo-filtro">Filtros de búsqueda</h1>
             {listaDeRubros.map(rubro => 
                 <Rubro 
-                nombreRubro = {rubro}/>
+                nombreRubro = {rubro}
+                cantidadProductos = {contadorDeRubros(listaDeRubrosRepetidos,rubro)}/>
             )}
-            
         </div>
         <div className='listado-ofertas'>
 

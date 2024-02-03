@@ -6,6 +6,15 @@
     margin-left: 20px;
 }
 
+.contenedor-filtros{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+    height: 100vh;
+    width: 200px;
+}
+
 #checkbox{
     width: 20px;
     height: 20px;
