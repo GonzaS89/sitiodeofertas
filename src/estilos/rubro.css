@@ -23,3 +23,7 @@
 .nombre-rubro{
     text-transform:capitalize
 }
+
+.contador-productos{
+    font-weight: bold;
+}
