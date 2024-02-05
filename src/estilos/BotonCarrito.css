@@ -1,0 +1,27 @@
+.botonCarrito-contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.botonCarrito{
+    width: 90%;
+    height: 50px;
+    background-color: rgb(255, 255, 104);
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-family:var(--fuentePrincipal);
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+
+    &&:hover{
+    background-color:black;
+    color: white;
+    letter-spacing: 1.5px;
+    transition: .1s all linear;
+
+}
+}

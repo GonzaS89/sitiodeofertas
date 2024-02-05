@@ -1,5 +1,7 @@
 import React from 'react';
 import '../estilos/Oferta.css'
+import BotonCarrito from './BotonCarrito';
+
 
 function Oferta (props) {
     return (
@@ -32,11 +34,9 @@ function Oferta (props) {
                         </span>
                         <h3 className='domicilio-comercio-oferta'>{props.domicilioComercio}</h3>
                     </div>
-                    
-                    
                 </div>
-                
             </div>
+            <BotonCarrito />
         </div>
     )
 }

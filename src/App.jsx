@@ -3,6 +3,7 @@ import './App.css';
 import Header from './componentes/Header';
 import Rubro from './componentes/Rubro';
 import Oferta from './componentes/Oferta';
+// import Boton from './componentes/BotonCarrito';
 import data from './data.json';
 
 let listaDeRubros = [];
