@@ -47,7 +47,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50%;  
+    height: 40%;  
     && img{
         width: 80%;
         height: 80%;
