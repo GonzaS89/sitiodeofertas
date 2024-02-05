@@ -1,5 +1,6 @@
 import React from 'react';
 import '../estilos/Header.css';
+import Carrito from './Carrito';
 
 function Header () {
     return(
@@ -7,9 +8,7 @@ function Header () {
             <img
             className='header-logo' 
             src={require('../imagenes/logo.png')}/>
-            <img 
-            className='carrito-logo'
-            src={require('../iconos/carrito.png')}/>
+            <Carrito />
         </div>
     )
 }
