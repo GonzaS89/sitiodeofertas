@@ -6,7 +6,7 @@ function Rubro (props) {
         <div className='contenedor-rubro'>
             <input className="check-rubro" id="checkbox" type='checkbox'></input>
             <p className='nombre-rubro'>{props.nombreRubro}</p>
-            <p className='contador-productos'> ( {props.cantidadProductos} ) </p>
+            <p className='contador-productos'> ( <span>{props.cantidadProductos}</span> ) </p>
         </div>
     )
 }

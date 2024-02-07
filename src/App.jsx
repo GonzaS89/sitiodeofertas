@@ -1,9 +1,10 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './componentes/Header';
 import Rubro from './componentes/Rubro';
 import Oferta from './componentes/Oferta';
-// import Boton from './componentes/BotonCarrito';
+
 import data from './data.json';
 
 let listaDeRubros = [];
@@ -28,10 +29,29 @@ const contadorDeRubros = (array,rubro) => {
 
 
 function App() {
+
+  const [itemsCarrito, setItemsCarrito] = useState(0);
+  const [noEstaAgregadoAlCarrito, setNoEstaAgregadoAlCarrito] = useState(true);
+  let textoBotonCarrito;
+  const itemAgregado = () => {
+    setNoEstaAgregadoAlCarrito(noEstaAgregadoAlCarrito => !noEstaAgregadoAlCarrito)};
+    const cambiarContenidoBoton = () => {
+      textoBotonCarrito = noEstaAgregadoAlCarrito ? 'Agregado':'Agregar al carrito';
+  }
+
+  const clickeadoBotonCarrito = () => {
+    setItemsCarrito(itemsCarrito + 1);
+    itemAgregado();
+    cambiarContenidoBoton();
+    
+  }
+
+    
+
   return (
 
     <div className="App">
-      <Header />
+      <Header cantidadItems = {itemsCarrito}/>
       <div className='contenedor-principal'>
         <div className='contenedor-filtros'>
           <h1 className="titulo-filtro">Filtros de búsqueda</h1>
@@ -51,7 +71,10 @@ function App() {
   precioOferta = {productos.precio}
   comercioOferta = {productos.comercio}
   domicilioComercio = {productos.domicilioComercio}
-  rubro = {productos.rubro}/>
+  rubro = {productos.rubro}
+  clickeadoBoton = {clickeadoBotonCarrito}
+  textoBoton = {textoBotonCarrito}/>
+  
 )}
 
 

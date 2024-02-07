@@ -1,9 +1,10 @@
-import React from 'react';
-import '../estilos/Oferta.css'
-import BotonCarrito from './BotonCarrito';
+import React, { useState } from 'react';
+import '../estilos/Oferta.css';
+import '../estilos/BotonCarrito.css';
 
 
 function Oferta (props) {
+
     return (
         <div className='contenedor-oferta'>
             <div className='logo-oferta'>
@@ -36,7 +37,13 @@ function Oferta (props) {
                     </div>
                 </div>
             </div>
-            <BotonCarrito />
+            <div className='botonCarrito-contenedor' 
+            id='boton-carrito-contenedor'>
+            <button 
+            className="botonCarrito"
+            onClick={()=> props.clickeadoBoton(props.children)}
+            >{props.textoBoton}</button>
+        </div>
         </div>
     )
 }
