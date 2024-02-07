@@ -31,6 +31,7 @@ const contadorDeRubros = (array,rubro) => {
 function App() {
 
   const [itemsCarrito, setItemsCarrito] = useState(0);
+
   const [noEstaAgregadoAlCarrito, setNoEstaAgregadoAlCarrito] = useState(true);
   let textoBotonCarrito;
   const itemAgregado = () => {
@@ -40,10 +41,8 @@ function App() {
   }
 
   const clickeadoBotonCarrito = () => {
-    setItemsCarrito(itemsCarrito + 1);
-    itemAgregado();
-    cambiarContenidoBoton();
-    
+    setItemsCarrito(itemsCarrito + 1); 
+       
   }
 
     
