@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './componentes/Header';
 import Rubro from './componentes/Rubro';
 import Oferta from './componentes/Oferta';
-
+import {v4 as uuidv4} from 'uuid';
 import data from './data.json';
 
+
+// Confeccion de lista rubros
 let listaDeRubros = [];
 data.forEach (producto => {
   if(!listaDeRubros.includes(producto.rubro)) listaDeRubros.push(producto.rubro)
 })
 
+// Contador de productos por rubro
 let listaDeRubrosRepetidos = [];
 data.forEach(productos => {
   listaDeRubrosRepetidos.push(productos.rubro)
@@ -31,21 +33,12 @@ const contadorDeRubros = (array,rubro) => {
 function App() {
 
   const [itemsCarrito, setItemsCarrito] = useState(0);
-
-  const [noEstaAgregadoAlCarrito, setNoEstaAgregadoAlCarrito] = useState(true);
-  let textoBotonCarrito;
-  const itemAgregado = () => {
-    setNoEstaAgregadoAlCarrito(noEstaAgregadoAlCarrito => !noEstaAgregadoAlCarrito)};
-    const cambiarContenidoBoton = () => {
-      textoBotonCarrito = noEstaAgregadoAlCarrito ? 'Agregado':'Agregar al carrito';
-  }
-
+  const [itemAgregado, setItemAgregado] = useState(false);
+  const [listaItemsAgregados, setItemsAgregados] = useState([]);
+ 
   const clickeadoBotonCarrito = () => {
-    setItemsCarrito(itemsCarrito + 1); 
-       
+    setItemsCarrito(itemsCarrito + 1);
   }
-
-    
 
   return (
 
@@ -72,9 +65,12 @@ function App() {
   domicilioComercio = {productos.domicilioComercio}
   rubro = {productos.rubro}
   clickeadoBoton = {clickeadoBotonCarrito}
-  textoBoton = {textoBotonCarrito}/>
-  
+  textoBoton = {!itemAgregado ? 'Agregar al carrito' : 'Agregado al carrito'}
+  id = {productos.id}
+  itemAgregado = {itemAgregado}/>
+
 )}
+
       </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+
 [
     {
         "imagen" : "vacio",
@@ -5,8 +6,8 @@
         "precio" : 5000,
         "comercio" : "Carnicería Supercarnes",
         "domicilioComercio" : "Capitán Jaime Sola - B° La Cancha",
-        "rubro" : "carniceria"
-
+        "rubro" : "carniceria",
+        "id" : "778"
     },
     {
         "imagen" : "patamuslo",
@@ -14,7 +15,8 @@
         "precio" : 3800,
         "comercio" : "Polleria Pollo",
         "domicilioComercio" : "B° La Avenida",
-        "rubro" : "polleria"
+        "rubro" : "polleria",
+        "id" : "454"
     },
     {
         "imagen" : "supremas",
@@ -22,7 +24,8 @@
         "precio" : 3000,
         "comercio" : "Polleria Carlos",
         "domicilioComercio" : "B° La Cancha",
-        "rubro" : "polleria"
+        "rubro" : "polleria",
+        "id" : "784"
     },
     {
         "imagen" : "papas",
@@ -30,7 +33,8 @@
         "precio" : 1000,
         "comercio" : "Verduleria Del Valle",
         "domicilioComercio" : "B° Tres Luces",
-        "rubro" : "verduleria"
+        "rubro" : "verduleria",
+        "id" : "484"
     },
     {
         "imagen" : "yogurt1lmanfrey",
@@ -38,6 +42,7 @@
         "precio" : 800,
         "comercio" : "Despensa El Perro",
         "domicilioComercio" : "B° La Flor",
-        "rubro" : "lacteos"
+        "rubro" : "lacteos",
+        "id" : "964"
     }
 ]
