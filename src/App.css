@@ -44,14 +44,12 @@
 
 
 .listado-ofertas{
-  width: 80%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-self: flex-end;
   justify-content: center;
-  gap: 40px;
-  margin: 40px 0; 
+  gap: 30px;
+  margin-top: 40px; 
 }
 
 

@@ -11,7 +11,6 @@
     display: flex;
     flex-direction: column;
     z-index: 50;
-    width: 260px;
     height: 83vh;
     padding-bottom: 30px;
     overflow-y: scroll;
@@ -27,6 +26,7 @@
 
 .nombre-checkbox{
     text-transform:capitalize;
+    font-size: 15px;
 }
 
 .contador-productos span{
