@@ -75,48 +75,8 @@ function App() {
   textoBoton = {textoBotonCarrito}/>
   
 )}
-
-
-
-{/* <Oferta 
-imagen = 'patamuslo'
-tituloOferta = '3 Kgs de patamuslo'
-precioOferta = '3800'
-comercioOferta = 'Pollería El Pollo'
-domicilioComercio = 'B° La Avenida'
-rubro = 'polleria'/>
-<Oferta 
-imagen = 'papas'
-tituloOferta = '3 Kgs de papas'
-precioOferta = '1500'
-comercioOferta = 'Verduleria Carlos'
-domicilioComercio = 'B° La Villa'
-rubro = 'verduleria'/>
-<Oferta 
-imagen = 'supremas'
-tituloOferta = '1 kg de supremas'
-precioOferta = '3500'
-comercioOferta = 'Pollería Jorge'
-domicilioComercio = 'B° Paraiso'
-rubro = 'polleria'/>
-<Oferta 
-imagen = 'jabonliquido'
-tituloOferta = '5 lts de Jabón Liquido'
-precioOferta = '5000'
-comercioOferta = 'Todo Limpio'
-domicilioComercio = 'B° Avenida'
-rubro = 'lavanderia'/>
-<Oferta 
-imagen = 'yogurt1lmanfrey'
-tituloOferta = 'Yogurt de litro manfrey'
-precioOferta = '900'
-comercioOferta = 'Despensa Algo'
-domicilioComercio = 'B° Tres Luces'
-rubro = 'lacteos'/> */}
       </div>
       </div>
-      
-      
     </div>
   );
 }
