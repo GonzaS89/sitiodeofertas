@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './componentes/Header';
 import Rubro from './componentes/Rubro';
 import Oferta from './componentes/Oferta';
-
+import {v4 as uuidv4} from 'uuid';
 import data from './data.json';
 
+
+// Confeccion de lista rubros
 let listaDeRubros = [];
 data.forEach (producto => {
   if(!listaDeRubros.includes(producto.rubro)) listaDeRubros.push(producto.rubro)
 })
 
+// Contador de productos por rubro
 let listaDeRubrosRepetidos = [];
 data.forEach(productos => {
   listaDeRubrosRepetidos.push(productos.rubro)
@@ -31,21 +33,12 @@ const contadorDeRubros = (array,rubro) => {
 function App() {
 
   const [itemsCarrito, setItemsCarrito] = useState(0);
-
-  const [noEstaAgregadoAlCarrito, setNoEstaAgregadoAlCarrito] = useState(true);
-  let textoBotonCarrito;
-  const itemAgregado = () => {
-    setNoEstaAgregadoAlCarrito(noEstaAgregadoAlCarrito => !noEstaAgregadoAlCarrito)};
-    const cambiarContenidoBoton = () => {
-      textoBotonCarrito = noEstaAgregadoAlCarrito ? 'Agregado':'Agregar al carrito';
-  }
-
+  const [itemAgregado, setItemAgregado] = useState(false);
+  const [listaItemsAgregados, setItemsAgregados] = useState([]);
+ 
   const clickeadoBotonCarrito = () => {
-    setItemsCarrito(itemsCarrito + 1); 
-       
+    setItemsCarrito(itemsCarrito + 1);
   }
-
-    
 
   return (
 
@@ -72,47 +65,12 @@ function App() {
   domicilioComercio = {productos.domicilioComercio}
   rubro = {productos.rubro}
   clickeadoBoton = {clickeadoBotonCarrito}
-  textoBoton = {textoBotonCarrito}/>
-  
+  textoBoton = {!itemAgregado ? 'Agregar al carrito' : 'Agregado al carrito'}
+  id = {productos.id}
+  itemAgregado = {itemAgregado}/>
+
 )}
 
-
-
-{/* <Oferta 
-imagen = 'patamuslo'
-tituloOferta = '3 Kgs de patamuslo'
-precioOferta = '3800'
-comercioOferta = 'Pollería El Pollo'
-domicilioComercio = 'B° La Avenida'
-rubro = 'polleria'/>
-<Oferta 
-imagen = 'papas'
-tituloOferta = '3 Kgs de papas'
-precioOferta = '1500'
-comercioOferta = 'Verduleria Carlos'
-domicilioComercio = 'B° La Villa'
-rubro = 'verduleria'/>
-<Oferta 
-imagen = 'supremas'
-tituloOferta = '1 kg de supremas'
-precioOferta = '3500'
-comercioOferta = 'Pollería Jorge'
-domicilioComercio = 'B° Paraiso'
-rubro = 'polleria'/>
-<Oferta 
-imagen = 'jabonliquido'
-tituloOferta = '5 lts de Jabón Liquido'
-precioOferta = '5000'
-comercioOferta = 'Todo Limpio'
-domicilioComercio = 'B° Avenida'
-rubro = 'lavanderia'/>
-<Oferta 
-imagen = 'yogurt1lmanfrey'
-tituloOferta = 'Yogurt de litro manfrey'
-precioOferta = '900'
-comercioOferta = 'Despensa Algo'
-domicilioComercio = 'B° Tres Luces'
-rubro = 'lacteos'/> */}
       </div>
       </div>
       
