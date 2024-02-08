@@ -21,31 +21,37 @@
 
 .contenedor-principal{
   display: flex;
-  justify-content: baseline;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   margin-top: 100px;
+
 }
 
-.contenedor-filtros{
-  width: 300px;
-  background: #F2EFE5;
-  border-right: 5px solid rgba(128, 128, 128, 0.135);
-}
-
-.titulo-filtro{
+.titulo-filtro, .subtitulo-filtro{
   margin: 25px 0;
   font-family: var(--fuentePrincipal);
-  font-size: 17.5px;
+  font-size:18px;
   text-transform: uppercase;
 }
 
+.subtitulo-filtro{
+  font-size: 15px;
+  margin:0 ;
+  margin: 20px 0 0 20px;
+  text-align: left;
+}
+
+
 .listado-ofertas{
-  width: 100%;
+  width: 80%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-self: flex-end;
   justify-content: center;
   gap: 40px;
-  margin: 30px 10px;
+  margin: 40px 0; 
 }
 
 

@@ -1,26 +1,15 @@
 import React, { useState } from 'react';
 import '../estilos/Oferta.css';
 import '../estilos/BotonCarrito.css';
+import data from '../data.json';
+
 
 
 
 function Oferta (props) {
 
     const [clickeado, setClickeado] = useState(false);
-    const [idsAgregadas, setIdsAgregadas] = useState([]);
-    let listaArray = []
-
-    const mostrarIds = (e) => {
-        let ids = e.target.id
-        if(!listaArray.includes(ids)) listaArray.push(ids)
-        console.log(listaArray);
-    }
-
-    
-
-    
-
-
+   
     const botonClickeado = () => {setClickeado(!clickeado)}
 
     return (
@@ -60,8 +49,8 @@ function Oferta (props) {
             <button 
             className={clickeado ? 'botonCarrito boton-productoagregado' : 'botonCarrito'}
             id={`${props.id}`}
-            onClick={(e)=> props.clickeadoBoton(botonClickeado(),mostrarIds(e),props.children)}
-            >{clickeado ? 'Agreado al carrito' : 'Agregar al carrito'}</button>
+            onClick={(e)=> props.clickeadoBoton(botonClickeado(),props.children)}
+            >{clickeado ? 'Agregado' : 'Agregar al carrito'}</button>
         </div>
         </div>
     )

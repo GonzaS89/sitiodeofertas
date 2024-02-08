@@ -19,7 +19,7 @@
 .contenedor-oferta{
     display: flex;
     flex-direction: column;
-    width: 280px;
+    width:300px;
     min-height: 450px;
     /* background: #F8FAE5;  */
     background: rgb(208, 72, 72);

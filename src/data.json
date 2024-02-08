@@ -5,9 +5,18 @@
         "producto" : "1 kg de vacío",
         "precio" : 5000,
         "comercio" : "Carnicería Supercarnes",
-        "domicilioComercio" : "Capitán Jaime Sola - B° La Cancha",
+        "domicilioComercio" : "B° La Cancha",
         "rubro" : "carniceria",
         "id" : "778"
+    },
+    {
+        "imagen" : "chorizos",
+        "producto" : "3 kg de chorizo",
+        "precio" : 2500,
+        "comercio" : "Carnicería Supercarnes",
+        "domicilioComercio" : "B° La Cancha",
+        "rubro" : "carniceria",
+        "id" : "800"
     },
     {
         "imagen" : "patamuslo",

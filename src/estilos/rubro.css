@@ -1,4 +1,4 @@
-.contenedor-rubro{
+.contenedor-checkbox{
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -11,8 +11,13 @@
     display: flex;
     flex-direction: column;
     z-index: 50;
-    height: 100vh;
-    width: 200px;
+    width: 260px;
+    height: 83vh;
+    padding-bottom: 30px;
+    overflow-y: scroll;
+    background-color:azure;
+    top:0;
+    margin-top: 100px;
 }
 
 #checkbox{
@@ -20,8 +25,8 @@
     height: 20px;
 }
 
-.nombre-rubro{
-    text-transform:capitalize
+.nombre-checkbox{
+    text-transform:capitalize;
 }
 
 .contador-productos span{
