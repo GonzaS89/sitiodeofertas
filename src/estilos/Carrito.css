@@ -16,12 +16,12 @@
     align-items: center;
     width: 25px;
     height: 25px;
-    background-color: black;
+    background-color:aliceblue;
     border-radius: 50%;
     position: absolute;
     top: 0;
     right: 0;
-    color: aliceblue;
+    color:black;
     transform: translateY(10px);
     font-weight: bold;
     font-size: 14px;
