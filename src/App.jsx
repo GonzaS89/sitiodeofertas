@@ -1,21 +1,10 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Header from './componentes/Header';
 import Rubro from './componentes/Rubro';
 import Oferta from './componentes/Oferta';
-
+import CheckoutCarrito from './componentes/CheckoutCarrito';
 import data from './data.json';
-
-let listaDeRubros = [];
-data.forEach (producto => {
-  if(!listaDeRubros.includes(producto.rubro)) listaDeRubros.push(producto.rubro)
-})
-
-let listaDeRubrosRepetidos = [];
-data.forEach(productos => {
-  listaDeRubrosRepetidos.push(productos.rubro)
-})
 
 //Lista de comercio
 let listaDeComercios = [];
@@ -53,21 +42,29 @@ const contadorDeRubros = (array,rubro) => {
 
 function App() {
 
+    let listaDeRubros = [];
+    data.forEach (producto => {
+        if(!listaDeRubros.includes(producto.rubro)) listaDeRubros.push(producto.rubro)
+    })
+
+    let listaDeRubrosRepetidos = [];
+    data.forEach(productos => {
+        listaDeRubrosRepetidos.push(productos.rubro)
+    })
+
   const [itemsCarrito, setItemsCarrito] = useState(0);
+  const [carritoClickeado, setCarritoClickeado] = useState(false);
 
+  const clickeadoBotonCarrito = () => {setItemsCarrito(itemsCarrito + 1); }
+  const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado)};
   
-
-  const clickeadoBotonCarrito = () => {
-    setItemsCarrito(itemsCarrito + 1); 
-       
-  }
-
-    
 
   return (
 
     <div className="App">
-      <Header cantidadItems = {itemsCarrito}/>
+      <Header 
+      cantidadItems = {itemsCarrito}
+      clickEnCarrito = {mostrarCheckoutCarrito}/>
       <div className='contenedor-principal'>
         <div className='contenedor-filtros'>
           <h1 className="titulo-filtro">Filtros de búsqueda</h1>
@@ -101,12 +98,12 @@ function App() {
   comercioOferta = {productos.comercio}
   domicilioComercio = {productos.domicilioComercio}
   rubro = {productos.rubro}
-  clickeadoBoton = {clickeadoBotonCarrito}
-  id = {productos.id}/>
+  clickeadoBoton = {clickeadoBotonCarrito}/>
   
 )}
       </div>
       </div>
+      <CheckoutCarrito carritoClickeado = {carritoClickeado}/>
     </div>
   );
 }

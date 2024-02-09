@@ -1,0 +1,41 @@
+.checkout-contenedor{
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    animation: entrarPantallaCheckout .3s;
+}
+
+@keyframes entrarPantallaCheckout {
+    0%{filter: opacity(0);}
+    100%{filter: opacity(1);}
+}
+
+.checkout-carrito-contenedor{
+    display: none;
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color:aliceblue;
+    z-index: 100;    
+}
+
+.visible{display: flex;}
+
+.botondecierre{
+position: absolute;
+top: 0;
+right: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 50px;
+height: 50px;
+border: 2px solid rgba(128, 128, 128, 0.22);
+font-size: 25px;
+}

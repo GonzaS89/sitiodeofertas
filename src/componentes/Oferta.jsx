@@ -48,7 +48,6 @@ function Oferta (props) {
             >
             <button 
             className={clickeado ? 'botonCarrito boton-productoagregado' : 'botonCarrito'}
-            id={`${props.id}`}
             onClick={(e)=> props.clickeadoBoton(botonClickeado(),props.children)}
             >{clickeado ? 'Agregado' : 'Agregar al carrito'}</button>
         </div>

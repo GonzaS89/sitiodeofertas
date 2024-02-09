@@ -1,7 +1,7 @@
 import React from 'react';
 import '../estilos/Header.css';
 import '../estilos/Carrito.css'
-import Carrito from './Carrito';
+
 
 function Header (props) {
     return(
@@ -12,6 +12,7 @@ function Header (props) {
             <div className="carrito-contenedor">
             <span className="contador-productos-carrito">{props.cantidadItems}</span>
             <img className="carrito-logo" 
+            onClick={props.clickEnCarrito}
             src={require('../iconos/carrito.png')}/>
         </div>
         </div>
