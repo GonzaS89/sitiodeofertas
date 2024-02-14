@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../estilos/Oferta.css';
 import '../estilos/BotonCarrito.css';
-import data from '../data.json';
+
 
 
 

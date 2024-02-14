@@ -6,6 +6,7 @@ import Oferta from './componentes/Oferta';
 import CheckoutCarrito from './componentes/CheckoutCarrito';
 import data from './data.json';
 
+
 //Lista de comercio
 let listaDeComercios = [];
 data.forEach (producto => {
@@ -34,7 +35,7 @@ const contadorDeRubros = (array,rubro) => {
   let contador = 0;
   for (let i = 0; i < array.length; i++) {
     const elemento = array[i];
-    if(rubro == elemento) contador++;
+    if(rubro === elemento) contador++;
   }
   return contador
 }
@@ -48,15 +49,15 @@ function App() {
     })
 
     let listaDeRubrosRepetidos = [];
-    data.forEach(productos => {
-        listaDeRubrosRepetidos.push(productos.rubro)
-    })
+    data.forEach(productos => {listaDeRubrosRepetidos.push(productos.rubro)})
 
   const [itemsCarrito, setItemsCarrito] = useState(0);
   const [carritoClickeado, setCarritoClickeado] = useState(false);
 
   const clickeadoBotonCarrito = () => {setItemsCarrito(itemsCarrito + 1); }
   const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado)};
+  const cerrarCheckoutCarrito = () => {setCarritoClickeado (!carritoClickeado)};
+
   
 
   return (
@@ -103,8 +104,11 @@ function App() {
 )}
       </div>
       </div>
-      <CheckoutCarrito carritoClickeado = {carritoClickeado}/>
+      <CheckoutCarrito 
+      carritoClickeado = {carritoClickeado} 
+      cerrarCheckoutCarrito = {cerrarCheckoutCarrito}/>
     </div>
+
   );
 }
 
