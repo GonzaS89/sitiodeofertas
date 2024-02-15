@@ -43,6 +43,7 @@ const contadorDeRubros = (array,rubro) => {
 
 function App() {
 
+
     let listaDeRubros = [];
     data.forEach (producto => {
         if(!listaDeRubros.includes(producto.rubro)) listaDeRubros.push(producto.rubro)
@@ -53,15 +54,13 @@ function App() {
 
   const [itemsCarrito, setItemsCarrito] = useState(0);
   const [carritoClickeado, setCarritoClickeado] = useState(false);
-  const [listaIdAgregadas, setListaIdAgregadas] = useState([]);
+  const [idItemClickeado, setIdItemClickeado] = useState('')
 
-  setListaIdAgregadas([...listaIdAgregadas, {actualizarListaId}])
+  
+  const clickeadoBotonCarrito = (e) => {setItemsCarrito(itemsCarrito + 1)};
 
-  const clickeadoBotonCarrito = () => {setItemsCarrito(itemsCarrito + 1);}
   const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado)};
   const cerrarCheckoutCarrito = () => {setCarritoClickeado (!carritoClickeado)};
-
- 
 
   return (
 
@@ -103,7 +102,6 @@ function App() {
   domicilioComercio = {productos.domicilioComercio}
   rubro = {productos.rubro}
   id = {productos.id}
-  retornarId = {actualizarListaId()}
   clickeadoBoton = {clickeadoBotonCarrito}/>
   
 )}
@@ -111,7 +109,8 @@ function App() {
       </div>
       <CheckoutCarrito 
       carritoClickeado = {carritoClickeado} 
-      cerrarCheckoutCarrito = {cerrarCheckoutCarrito}/>
+      cerrarCheckoutCarrito = {cerrarCheckoutCarrito}
+      idItemClickeado = {'800'}/>
     </div>
 
   );
