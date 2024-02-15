@@ -11,6 +11,11 @@ function Oferta (props) {
 
     const botonClickeado = () => {setClickeado(!clickeado)}
 
+    const [idClickeada, setIdClickeada] = useState('')
+
+    const obtenerId = () => {setIdClickeada(props.id);}
+
+
     return (
         <div className='contenedor-oferta'>
             <div className='logo-oferta'>
@@ -43,12 +48,10 @@ function Oferta (props) {
                     </div>
                 </div>
             </div>
-            <div className='botonCarrito-contenedor' 
-            >
+            <div className='botonCarrito-contenedor'>
             <button 
             className={clickeado ? 'botonCarrito boton-productoagregado' : 'botonCarrito'}
-            id = {props.id}
-            onClick={(e)=> props.clickeadoBoton(botonClickeado(),props.children)}
+            onClick={()=> props.clickeadoBoton(botonClickeado(),obtenerId(),props.children)}
             >{clickeado ? 'Agregado' : 'Agregar al carrito'}</button>
         </div>
         </div>
