@@ -53,12 +53,15 @@ function App() {
 
   const [itemsCarrito, setItemsCarrito] = useState(0);
   const [carritoClickeado, setCarritoClickeado] = useState(false);
+  const [listaIdAgregadas, setListaIdAgregadas] = useState([]);
 
-  const clickeadoBotonCarrito = () => {setItemsCarrito(itemsCarrito + 1); }
+  setListaIdAgregadas([...listaIdAgregadas, {actualizarListaId}])
+
+  const clickeadoBotonCarrito = () => {setItemsCarrito(itemsCarrito + 1);}
   const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado)};
   const cerrarCheckoutCarrito = () => {setCarritoClickeado (!carritoClickeado)};
 
-  
+ 
 
   return (
 
@@ -99,6 +102,8 @@ function App() {
   comercioOferta = {productos.comercio}
   domicilioComercio = {productos.domicilioComercio}
   rubro = {productos.rubro}
+  id = {productos.id}
+  retornarId = {actualizarListaId()}
   clickeadoBoton = {clickeadoBotonCarrito}/>
   
 )}

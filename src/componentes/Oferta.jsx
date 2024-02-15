@@ -9,8 +9,13 @@ import '../estilos/BotonCarrito.css';
 function Oferta (props) {
 
     const [clickeado, setClickeado] = useState(false);
-   
+    const [listaIdAgregadas, setListaIdAgregadas] = useState([]);
+
     const botonClickeado = () => {setClickeado(!clickeado)}
+
+    const agregarId = (e) => { return e.target.id}
+
+    
 
     return (
         <div className='contenedor-oferta'>
@@ -48,7 +53,8 @@ function Oferta (props) {
             >
             <button 
             className={clickeado ? 'botonCarrito boton-productoagregado' : 'botonCarrito'}
-            onClick={()=> props.clickeadoBoton(botonClickeado(),props.children)}
+            id = {props.id}
+            onClick={(e)=> props.clickeadoBoton(botonClickeado(),props.retornarId(agregarId(e)),props.children)}
             >{clickeado ? 'Agregado' : 'Agregar al carrito'}</button>
         </div>
         </div>
