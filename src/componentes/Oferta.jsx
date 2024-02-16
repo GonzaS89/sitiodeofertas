@@ -13,7 +13,8 @@ function Oferta (props) {
 
     const [idClickeada, setIdClickeada] = useState('')
 
-    const obtenerId = () => {setIdClickeada(props.id);}
+    const obtenerId = () => {<CheckoutCarrito idClickeada = {'800'}/>};
+
 
 
     return (

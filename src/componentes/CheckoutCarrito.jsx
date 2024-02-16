@@ -9,10 +9,7 @@ function CheckoutCarrito (props) {
 
     const agregarIdClickeada = () => {
         setListaIdAgregadas([...listaIdAgregadas, props.idClickeada])
-        console.log(listaIdAgregadas)
     };
-
-    <Oferta agregarIdClickeada = {agregarIdClickeada}/>
 
     return (
 
@@ -21,7 +18,7 @@ function CheckoutCarrito (props) {
             <div className='checkout-carrito-contenedor visible'>
              <span className="botondecierre" onClick={props.cerrarCheckoutCarrito}>X</span>   
              <div className="container-productosagregados">
-                {listaIdAgregadas.map(id => {console.log(id)})}
+                <h1>{}</h1>
              </div>
             </div>  
         </div>

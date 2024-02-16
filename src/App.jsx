@@ -56,8 +56,10 @@ function App() {
   const [carritoClickeado, setCarritoClickeado] = useState(false);
   const [idItemClickeado, setIdItemClickeado] = useState('')
 
+ 
+
   
-  const clickeadoBotonCarrito = (e) => {setItemsCarrito(itemsCarrito + 1)};
+  const clickeadoBotonCarrito = () => {setItemsCarrito(itemsCarrito + 1)};
 
   const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado)};
   const cerrarCheckoutCarrito = () => {setCarritoClickeado (!carritoClickeado)};
@@ -110,7 +112,7 @@ function App() {
       <CheckoutCarrito 
       carritoClickeado = {carritoClickeado} 
       cerrarCheckoutCarrito = {cerrarCheckoutCarrito}
-      idItemClickeado = {'800'}/>
+      idItemClickeado = {<Oferta idClickeada = {'800'}/>}/>
     </div>
 
   );
