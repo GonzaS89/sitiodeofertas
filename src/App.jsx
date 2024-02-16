@@ -54,13 +54,21 @@ function App() {
 
   const [itemsCarrito, setItemsCarrito] = useState(0);
   const [carritoClickeado, setCarritoClickeado] = useState(false);
-  const [idItemClickeado, setIdItemClickeado] = useState('')
+  const [idRecibida, setIdRecibida] = useState('');
+  const [idGenerada, setIdGenerada] = useState(false);
+  const [listaIds, setListaIds] = useState([]);
 
-  
-  const clickeadoBotonCarrito = (e) => {setItemsCarrito(itemsCarrito + 1)};
+  const recibirId = (id) => {setIdRecibida(id); setIdGenerada(true)};
+
+  const clickeadoBotonCarrito = () => {
+    setItemsCarrito(itemsCarrito + 1)
+    setListaIds([...listaIds, idRecibida]);
+  };
 
   const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado)};
   const cerrarCheckoutCarrito = () => {setCarritoClickeado (!carritoClickeado)};
+
+
 
   return (
 
@@ -102,7 +110,8 @@ function App() {
   domicilioComercio = {productos.domicilioComercio}
   rubro = {productos.rubro}
   id = {productos.id}
-  clickeadoBoton = {clickeadoBotonCarrito}/>
+  clickeadoBoton = {clickeadoBotonCarrito}
+  enviarId = {recibirId}/>
   
 )}
       </div>
@@ -110,7 +119,11 @@ function App() {
       <CheckoutCarrito 
       carritoClickeado = {carritoClickeado} 
       cerrarCheckoutCarrito = {cerrarCheckoutCarrito}
-      idItemClickeado = {'800'}/>
+      
+      
+      />
+
+      
     </div>
 
   );
