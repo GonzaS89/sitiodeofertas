@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import '../estilos/Oferta.css';
 import '../estilos/BotonCarrito.css';
-import CheckoutCarrito from './CheckoutCarrito';
-
 
 
 function Oferta (props) {

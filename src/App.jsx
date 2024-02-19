@@ -54,27 +54,19 @@ function App() {
 
   const [itemsCarrito, setItemsCarrito] = useState(0);
   const [carritoClickeado, setCarritoClickeado] = useState(false);
-  const [idRecibida, setIdRecibida] = useState('');
-  const [idGenerada, setIdGenerada] = useState(false);
   const [listaIds, setListaIds] = useState([]);
 
-  const recibirId = (id) => {setIdRecibida(id); setIdGenerada(true)};
-
-  const clickeadoBotonCarrito = () => {
-    setItemsCarrito(itemsCarrito + 1)
-    setListaIds([...listaIds, idRecibida]);
-  };
-
+  const recibirId = (id) => {setListaIds([...listaIds, id])}
+  
+  const clickeadoBotonCarrito = () => {setItemsCarrito(itemsCarrito + 1)};
   const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado)};
   const cerrarCheckoutCarrito = () => {setCarritoClickeado (!carritoClickeado)};
-
-
 
   return (
 
     <div className="App">
       <Header 
-      cantidadItems = {itemsCarrito}
+      cantidadItems = {listaIds.length}
       clickEnCarrito = {mostrarCheckoutCarrito}/>
       <div className='contenedor-principal'>
         <div className='contenedor-filtros'>
@@ -116,14 +108,23 @@ function App() {
 )}
       </div>
       </div>
+
       <CheckoutCarrito 
       carritoClickeado = {carritoClickeado} 
-      cerrarCheckoutCarrito = {cerrarCheckoutCarrito}
-      
-      
-      />
+      cerrarCheckoutCarrito = {cerrarCheckoutCarrito}/>
 
-      
+    <div 
+        className={carritoClickeado? 'checkout-contenedor visible' : 'checkout-contenedor ocultar'}>
+            <div className='checkout-carrito-contenedor visible'>
+             <span className="botondecierre" onClick={cerrarCheckoutCarrito}>X</span>   
+             <div className="container-productosagregados">
+              {listaIds.map(id=> 
+                  <h1>{id}</h1>
+                )}
+             </div>
+            </div>  
+    </div>
+
     </div>
 
   );
