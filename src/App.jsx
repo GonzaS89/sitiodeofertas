@@ -55,18 +55,41 @@ function App() {
   const [itemsCarrito, setItemsCarrito] = useState(0);
   const [carritoClickeado, setCarritoClickeado] = useState(false);
   const [listaIds, setListaIds] = useState([]);
+  const [sumaCarrito, setSumaCarrito] = useState(0);
+  const [listaDeIdsVacia, setListaIdsVacia] = useState(true);
 
-  const recibirId = (id) => {setListaIds([...listaIds, id])}
+  const obtenerPrecio = id => {
+    data.map(producto => 
+        producto.id === id && setSumaCarrito(sumaCarrito + producto.precio))
+  }
+ 
+
+  const recibirId = (id) => {
+    setListaIds([...listaIds, id])
+    obtenerPrecio(id)
+    comprobarListaIdsEstaVacia();
+}
+
+    const comprobarListaIdsEstaVacia = () => {
+        listaIds.length < 1 && setListaIdsVacia(false)
+    }
+
+
+   
+  const clickeadoBotonCarrito = () => {setItemsCarrito(listaIds.length + 1)};
+  const mostrarCheckoutCarrito = () => {
+    setCarritoClickeado(!carritoClickeado);
   
-  const clickeadoBotonCarrito = () => {setItemsCarrito(itemsCarrito + 1)};
-  const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado)};
+};
   const cerrarCheckoutCarrito = () => {setCarritoClickeado (!carritoClickeado)};
+  
+  
 
   return (
 
     <div className="App">
       <Header 
-      cantidadItems = {listaIds.length}
+      cantidadItems = {itemsCarrito}
       clickEnCarrito = {mostrarCheckoutCarrito}/>
       <div className='contenedor-principal'>
         <div className='contenedor-filtros'>
@@ -117,11 +140,27 @@ function App() {
         className={carritoClickeado? 'checkout-contenedor visible' : 'checkout-contenedor ocultar'}>
             <div className='checkout-carrito-contenedor visible'>
              <span className="botondecierre" onClick={cerrarCheckoutCarrito}>X</span>   
+             <h1 className="titulo-productosagregados">{listaDeIdsVacia ? 'Lista de pedidos vacía' : 'Tu lista de pedidos'}</h1>
              <div className="container-productosagregados">
-              {listaIds.map(id=> 
-                  <h1>{id}</h1>
+                {listaIds.map(id => 
+                    data.map(producto =>
+                        id === producto.id &&
+                        <div className="producto-carrito">
+                        <img src={require(`./iconos/${producto.rubro}.png`)} 
+                        alt="imagen-prod" 
+                        className="imagen-producto-carrito" />
+                        <div className="detalles-producto-carrito">
+                            <p className="nombre-producto">{producto.producto}</p>
+                            <p className="comercio-producto">{producto.comercio}</p>
+                            <p className="comerciodomicilio-producto">{producto.domicilioComercio}</p>
+                        </div>
+                        <span className="precio-producto-carrito">$ {producto.precio}</span>
+                        </div>
+                    )
                 )}
              </div>
+             <span className={listaDeIdsVacia ? 'sumartotalproductos ocultar' : 'sumartotalproductos visible'}
+             >Confirmar pedido por $ {sumaCarrito}</span>
             </div>  
     </div>
 

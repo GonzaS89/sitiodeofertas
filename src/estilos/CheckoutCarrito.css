@@ -14,13 +14,15 @@
 .checkout-carrito-contenedor{
     position: absolute;
     width: 500px;
-    height: 500px;
+    min-height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color:aliceblue;
     z-index: 100;  
-    border-radius: 20px;  
+    border-radius: 20px; 
+    padding: 20px; 
 }
 
 .visible{display: flex; animation: entrarPantallaCheckout .3s;}
@@ -30,8 +32,6 @@
 }
 
 .ocultar{display: none}
-
-
 
 .botondecierre{
 position: absolute;
