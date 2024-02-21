@@ -3,9 +3,6 @@ import './App.css';
 import Header from './componentes/Header';
 import Rubro from './componentes/Rubro';
 import Oferta from './componentes/Oferta';
-import CheckoutCarrito from './componentes/CheckoutCarrito';
-import { FaTrashAlt } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
 import data from './data.json';
 
 
@@ -61,33 +58,54 @@ function App() {
   const [listaDeIdsVacia, setListaIdsVacia] = useState(true);
   const [idEliminada, setIdEliminada] = useState('');
   const [idDentroDeListaIds,setIdDentroDeListaIds] = useState(false);
+  const [longitudListaIds, setLongitudListaIds] = useState(0);
 
   const obtenerPrecio = id => {
         data.map(producto => id == producto.id && 
             setSumaCarrito(sumaCarrito + producto.precio))
   }
+
+  const restarPrecioProductoBorrado = (id) => {
+        data.map(producto => id == producto.id &&
+            setSumaCarrito(sumaCarrito - producto.precio))        
+  }
  
+
+//   const comprobarListaIdsEstaVacia = () => {
+//     longitudListaIds > 0 ?  
+//     setListaIdsVacia(false) : setListaIdsVacia(true)
+// }
 
   const recibirId = (id) => {
     setListaIds([...listaIds, id]);
+    setIdDentroDeListaIds(true);
+    setLongitudListaIds(longitudListaIds + 1);
     obtenerPrecio(id);
-    comprobarListaIdsEstaVacia();
-    idEliminada !== id && setIdDentroDeListaIds(true)
 }
 
-    const comprobarListaIdsEstaVacia = () => {
-        listaIds.length < 1 && setListaIdsVacia(false)
-    }
-
-
    
-  const clickeadoBotonCarrito = () => {setItemsCarrito(listaIds.length + 1)};
-  const mostrarCheckoutCarrito = () => {setCarritoClickeado(!carritoClickeado);};
+  const clickeadoBotonCarrito = () => {
+    setItemsCarrito(listaIds.length + 1);
+};
+
+  const mostrarCheckoutCarrito = () => {
+    setCarritoClickeado(!carritoClickeado);
+    longitudListaIds  > 0 ?  
+    setListaIdsVacia(false) : setListaIdsVacia(true);
+};
+
+
   const cerrarCheckoutCarrito = () => {setCarritoClickeado (!carritoClickeado)};
 
   const quitarDeListaDeCarrito = e => {
     setListaIds(listaIds.filter(id => id !== e.target.id));
-    setIdEliminada(e.target.id)
+    setIdEliminada(e.target.id);
+    restarPrecioProductoBorrado(e.target.id);
+    longitudListaIds - 1 > 0 ?  
+    setListaIdsVacia(false) : setListaIdsVacia(true);
+    setItemsCarrito(listaIds.length - 1);
+    setLongitudListaIds(longitudListaIds - 1);
+    setIdDentroDeListaIds(false);
   }
   
   
@@ -134,20 +152,19 @@ function App() {
   id = {productos.id}
   clickeadoBoton = {clickeadoBotonCarrito}
   enviarId = {recibirId}
-  idEliminada = {idEliminada}
-  idDentroDeListaIds = {idDentroDeListaIds}/>
+  idEliminada = {idEliminada}/>
 )}
       </div>
       </div>
 
-      <CheckoutCarrito 
-      carritoClickeado = {carritoClickeado} 
-      cerrarCheckoutCarrito = {cerrarCheckoutCarrito}/>
 
     <div 
         className={carritoClickeado? 'checkout-contenedor visible' : 'checkout-contenedor ocultar'}>
             <div className='checkout-carrito-contenedor visible'>
-             <AiOutlineClose className="botondecierre" onClick={cerrarCheckoutCarrito}/>  
+             <img 
+             className="botondecierre" 
+             onClick={cerrarCheckoutCarrito}
+             src = {require('./iconos/cruz.png')}/>  
              <h1 className="titulo-productosagregados">{listaDeIdsVacia ? 'Lista de pedidos vacía' : 'Tu lista de pedidos'}</h1>
              <div className="container-productosagregados">
                 {listaIds.map(id => 
@@ -164,9 +181,10 @@ function App() {
                         </div>
                         <span className="precio-producto-carrito">$ {producto.precio}</span>
                         <span className="contenedor-iconocierre">
-                          <FaTrashAlt  
+                          <img  
                           className='iconocierre' 
                           onClick={quitarDeListaDeCarrito}
+                          src = {require('./iconos/tachodebasura.png')}
                           id = {producto.id}/>
                         </span>
                         </div>
