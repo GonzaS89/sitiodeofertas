@@ -114,7 +114,13 @@ body::-webkit-scrollbar{width: 10px;}
   color: rgba(0, 0, 0, 0.5);
 }
 
-.precio-producto-carrito{position: absolute;right: 0;margin-right: 20px;font-size: 15px;font-weight: bold;}
+.precio-producto-carrito{
+  position: absolute;
+  right: 0;
+  margin-right: 50px;
+  font-size: 15px;
+  font-weight: bold;
+}
 
 .sumartotalproductos{
   justify-content: center;
@@ -130,5 +136,20 @@ body::-webkit-scrollbar{width: 10px;}
 
 .ocultar {display: none;}
 .visible {display: flex;}
+
+.contenedor-iconocierre{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right:0;
+  height:100%;
+}
+
+.iconocierre{
+  width:20px;
+  height:20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
 
 
