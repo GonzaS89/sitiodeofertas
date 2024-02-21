@@ -59,8 +59,8 @@ function App() {
   const [listaIds, setListaIds] = useState([]);
   const [sumaCarrito, setSumaCarrito] = useState(0);
   const [listaDeIdsVacia, setListaIdsVacia] = useState(true);
-  const [estaDentroDeListaIds, setEstaDentroDeListaIds] = useState(false);
   const [idEliminada, setIdEliminada] = useState('');
+  const [idDentroDeListaIds,setIdDentroDeListaIds] = useState(false);
 
   const obtenerPrecio = id => {
         data.map(producto => id == producto.id && 
@@ -72,7 +72,7 @@ function App() {
     setListaIds([...listaIds, id]);
     obtenerPrecio(id);
     comprobarListaIdsEstaVacia();
-    idEliminada !== id && setEstaDentroDeListaIds(true)
+    idEliminada !== id && setIdDentroDeListaIds(true)
 }
 
     const comprobarListaIdsEstaVacia = () => {
@@ -134,8 +134,8 @@ function App() {
   id = {productos.id}
   clickeadoBoton = {clickeadoBotonCarrito}
   enviarId = {recibirId}
-  idDentroDeListaIds = {estaDentroDeListaIds}
-  idEliminada = {idEliminada}/>
+  idEliminada = {idEliminada}
+  idDentroDeListaIds = {idDentroDeListaIds}/>
 )}
       </div>
       </div>
