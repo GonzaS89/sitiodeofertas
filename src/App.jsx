@@ -63,7 +63,7 @@ function App() {
     const [longitudListaIds, setLongitudListaIds] = useState(0);
 
     const obtenerPrecio = id => {
-        data.map(producto => id == producto.id &&
+        data.map(producto => id === producto.id &&
             setSumaCarrito(sumaCarrito + producto.precio))
     }
 
@@ -84,7 +84,6 @@ function App() {
     };
 
     const mostrarCheckoutCarrito = () => {
-        console.log(idDentroDeListaIds)
         setCarritoClickeado(!carritoClickeado);
         longitudListaIds > 0 ?
             setListaIdsVacia(false) : setListaIdsVacia(true);
@@ -92,14 +91,13 @@ function App() {
 
     const cerrarCheckoutCarrito = () => { setCarritoClickeado(!carritoClickeado) };
 
-    const quitarDeListaDeCarrito = id => {
-        setIdEliminada(id);
-        setListaIds(listaIds.filter(ids => ids !== idEliminada));
-        restarPrecioProductoBorrado(idEliminada);
+    const quitarDeListaDeCarrito = idEnviada => {
+        console.log(idEnviada)
+        restarPrecioProductoBorrado(idEnviada);
+        setListaIds(listaIds.filter(id => id !== idEnviada));
         longitudListaIds - 1 > 0 ? setListaIdsVacia(false) : setListaIdsVacia(true);
         setItemsCarrito(listaIds.length - 1);
         setLongitudListaIds(longitudListaIds - 1); 
-        setIdDentroDeListaIds(!idDentroDeListaIds)
     }
 
 
