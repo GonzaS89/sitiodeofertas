@@ -5,7 +5,7 @@ import '../estilos/BotonCarrito.css';
 
 function Oferta (props) {
 
-    const [idDentroDeListaIds, setIdDentroDeListaIds] = useState(props.idDentroLista)
+    const [idDentroDeListaIds, setIdDentroDeListaIds] = useState(props.esOno)
 
     const botonClickeado = () => {
         setIdDentroDeListaIds(true);
@@ -26,7 +26,6 @@ function Oferta (props) {
             <div className='contenedor-detalle-oferta'>
                 <h1 className='titulo-oferta'>{props.tituloOferta}</h1>  
                 <h2 className='precio-oferta'>$ {props.precioOferta}</h2>
-                {/* <h3 className='interlinea-comercio'>Oferta disponible en:</h3> */}
                 <div className='comercio-oferta'>
                     <div className='comercio-nombre-ubicacion'>
                         <span className='logo-rubro-comercio'>
