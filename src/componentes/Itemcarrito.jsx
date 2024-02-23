@@ -19,7 +19,7 @@ const Itemcarrito = (props) => {
         <img
           className="iconocierre"
           id={props.id}
-          onClick={() => props.quitarDeListaDeCarrito(props.id)}
+          onClick={() => props.quitarDeListaDeCarrito(props.id,props.children)}
           src={require("../iconos/tachodebasura.png")}
         />
       </div>

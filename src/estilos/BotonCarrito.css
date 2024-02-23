@@ -36,7 +36,6 @@
         background-color: green;
         color:white;
     }
-    pointer-events: none
 }
 
 @keyframes entrada {
