@@ -61,7 +61,6 @@ function App() {
     const [listaDeIdsVacia, setListaIdsVacia] = useState(true);
     const [longitudListaIds, setLongitudListaIds] = useState(0);
     const [idEliminada, setIdEliminada] = useState();
-    const [a, setA] = useState(false);
 
     const obtenerPrecio = (id) => {
         data.map(
