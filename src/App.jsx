@@ -62,6 +62,7 @@ function App() {
     const [longitudListaIds, setLongitudListaIds] = useState(0);
     const [idEliminada, setIdEliminada] = useState();
 
+
     const obtenerPrecio = (id) => {
         data.map(
             (producto) =>
@@ -72,7 +73,7 @@ function App() {
     const restarPrecioProductoBorrado = (id) => {
         data.map(
             (producto) =>
-                id == producto.id && setSumaCarrito(sumaCarrito - producto.precio)
+                id === producto.id && setSumaCarrito(sumaCarrito - producto.precio)
         );
     };
 
