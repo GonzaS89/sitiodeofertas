@@ -4,7 +4,7 @@ import "../estilos/BotonCarrito.css";
 
 function Oferta(props) {
 
-  const [itemDentro, setItemDentro] = useState();
+  const [itemDentro, setItemDentro] = useState(false);
 
   const botonClickeado = () => {setItemDentro(true)}
 
@@ -43,7 +43,7 @@ function Oferta(props) {
       <div className="botonCarrito-contenedor">
         <button
           className={
-            props.compararIds(props.id, props.idEliminada) &&  itemDentro ? "botonCarrito boton-productoagregado" : "botonCarrito"
+            props.idEliminadaDentroDeLista(props.idEliminada) &&  itemDentro ? "botonCarrito boton-productoagregado" : "botonCarrito"
           }
           onClick={() =>
             props.clickeadoBoton(
@@ -53,7 +53,7 @@ function Oferta(props) {
             )
           }
         >
-          {props.compararIds(props.id, props.idEliminada) && itemDentro ? "Agregado" : "Agregar a lista de pedidos"}
+          {props.idEliminadaDentroDeLista(props.idEliminada) && itemDentro ? "Agregado" : "Agregar a lista de pedidos"}
         </button>
       </div>
     </div>

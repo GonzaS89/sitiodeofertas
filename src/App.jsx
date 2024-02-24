@@ -82,7 +82,13 @@ function App() {
         obtenerPrecio(idAgregada);
     };
 
-    const limpiarIdEliminada = (idRecibida) => {idRecibida !== idEliminada && setIdEliminada()}
+    const idEliminadaDentroDeLista = (idEliminada) => {
+      return listaIdsEliminadas.map((id) => id !== idEliminada && true)
+    }
+
+    // const idDentroDeLista = (idRecibida) => {
+    //   return listaIds.map((id) => id === idRecibida && true)
+    // }
 
     const clickeadoBotonCarrito = () => {
         setItemsCarrito(listaIds.length + 1);
@@ -95,6 +101,7 @@ function App() {
 
     const cerrarCheckoutCarrito = () => {
         setCarritoClickeado(!carritoClickeado);
+        idEliminadaDentroDeLista();
     };
 
     const compararIds = (id, idEliminada) => { return (id !== idEliminada ? true : false) }
@@ -107,6 +114,7 @@ function App() {
         setItemsCarrito(listaIds.length - 1);
         setLongitudListaIds(longitudListaIds - 1);
         setListaIdsEliminadas([...listaIdsEliminadas, idEnviada]);
+        
     }
 
 
@@ -166,7 +174,8 @@ function App() {
                                 enviarId={recibirId}
                                 idEliminada={idEliminada}
                                 compararIds={compararIds}
-                                limpiarIdEliminada = {limpiarIdEliminada}
+                                idEliminadaDentroDeLista = {idEliminadaDentroDeLista}
+                                // limpiarIdEliminada = {limpiarIdEliminada}
                             />
                         ))}
                     </div>
