@@ -4,9 +4,11 @@ import "../estilos/BotonCarrito.css";
 
 function Oferta(props) {
 
-  const [itemDentro, setItemDentro] = useState(false);
+  const [itemDentro, setItemDentro] = useState(props.confirmacionIdEliminada)
+ 
 
   const botonClickeado = () => {setItemDentro(true)}
+
 
   return (
     <div className="contenedor-oferta">
@@ -43,17 +45,18 @@ function Oferta(props) {
       <div className="botonCarrito-contenedor">
         <button
           className={
-            props.idEliminadaDentroDeLista(props.idEliminada) &&  itemDentro ? "botonCarrito boton-productoagregado" : "botonCarrito"
+            itemDentro ? "botonCarrito boton-productoagregado" : "botonCarrito"
           }
           onClick={() =>
             props.clickeadoBoton(
               botonClickeado (),
+              props.itemDentro(itemDentro),
               props.enviarId(props.id),
               props.children
             )
           }
         >
-          {props.idEliminadaDentroDeLista(props.idEliminada) && itemDentro ? "Agregado" : "Agregar a lista de pedidos"}
+        {itemDentro ? "Agregado" : "Agregar a lista de pedidos"}
         </button>
       </div>
     </div>

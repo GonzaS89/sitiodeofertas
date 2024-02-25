@@ -61,7 +61,7 @@ function App() {
     const [listaDeIdsVacia, setListaIdsVacia] = useState(true);
     const [longitudListaIds, setLongitudListaIds] = useState(0);
     const [idEliminada, setIdEliminada] = useState();
-
+    const [itemFuera, setItemFuera] = useState(false);
 
     const obtenerPrecio = (id) => {
         data.map(
@@ -87,13 +87,19 @@ function App() {
       return listaIdsEliminadas.map((id) => id !== idEliminada && true)
     }
 
-    // const idDentroDeLista = (idRecibida) => {
-    //   return listaIds.map((id) => id === idRecibida && true)
-    // }
-
     const clickeadoBotonCarrito = () => {
         setItemsCarrito(listaIds.length + 1);
     };
+
+    const devolverConfirmacionDeIngreso = (idItem) => {
+        return listaIds.map((id) => id !== idItem && true)
+    }
+
+    const validarItemFuera = () => {!(listaIds.includes(idEliminada)) && setItemFuera(false)}
+
+    const confirmacionIdEliminada = () => {
+       return itemFuera
+    }
 
     const mostrarCheckoutCarrito = () => {
         setCarritoClickeado(!carritoClickeado);
@@ -115,9 +121,12 @@ function App() {
         setItemsCarrito(listaIds.length - 1);
         setLongitudListaIds(longitudListaIds - 1);
         setListaIdsEliminadas([...listaIdsEliminadas, idEnviada]);
-        
-    }
+        validarItemFuera()
+    } 
 
+    const itemDentro = (itemDentro) => {
+        setItemFuera(!itemDentro)
+    }
 
 
     return (
@@ -176,7 +185,10 @@ function App() {
                                 idEliminada={idEliminada}
                                 compararIds={compararIds}
                                 idEliminadaDentroDeLista = {idEliminadaDentroDeLista}
-                                // limpiarIdEliminada = {limpiarIdEliminada}
+                                devolverConfirmacionDeIngreso = {devolverConfirmacionDeIngreso}
+                                confirmacionIdEliminada = {confirmacionIdEliminada}
+                                itemFuera = {itemFuera}
+                                itemDentro = {itemDentro}
                             />
                         ))}
                     </div>
