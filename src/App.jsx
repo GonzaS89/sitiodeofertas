@@ -61,7 +61,14 @@ function App() {
     const [listaDeIdsVacia, setListaIdsVacia] = useState(true);
     const [longitudListaIds, setLongitudListaIds] = useState(0);
     const [idEliminada, setIdEliminada] = useState();
-    const [itemFuera, setItemFuera] = useState();
+    const [rubrosSeleccionados, setRubrosSeleccionados] = useState('');
+    const [estadoCheckBoxSeleccionado,setEstadoCheckBoxSeleccionado] = useState(false)
+
+
+    const clickCheck = (rubro) => {
+        setRubrosSeleccionados(rubro);
+        
+    }
 
     const obtenerPrecio = (id) => {
         data.map(
@@ -91,14 +98,6 @@ function App() {
     const clickeadoBotonCarrito = () => {
         setItemsCarrito(listaIds.length + 1);
     };
-
-    const devolverConfirmacionDeIngreso = (idItem) => {
-        return listaIds.map((id) => id !== idItem && true)
-    }
-
-    const validarItemFuera = () => {
-        return false
-    }
 
     const mostrarCheckoutCarrito = () => {
         setCarritoClickeado(!carritoClickeado);
@@ -142,6 +141,7 @@ function App() {
                                     listaDeRubrosRepetidos,
                                     rubro
                                 )}
+                                clickCheck = {clickCheck}
                             />
                         ))}
                         <h2 className="subtitulo-filtro">Por comercios</h2>
@@ -167,6 +167,7 @@ function App() {
                     </div>
                     <div className="listado-ofertas">
                         {data.map((productos) => (
+                            productos.rubro === rubrosSeleccionados &&
                             <Oferta
                                 imagen={productos.imagen}
                                 tituloOferta={productos.producto}

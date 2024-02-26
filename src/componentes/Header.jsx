@@ -8,7 +8,7 @@ function Header (props) {
         <div className='header-contenedor'>
             <img
             className='header-logo' 
-            src={require('../imagenes/logo.png')}/>
+            src={require('../iconos/logo-lokerilotene.png')}/>
             <div className="carrito-contenedor">
             <span className="contador-productos-carrito">{props.cantidadItems}</span>
             <img className="carrito-logo" 
