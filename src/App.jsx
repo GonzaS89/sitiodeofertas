@@ -64,11 +64,7 @@ function App() {
     const [rubrosSeleccionados, setRubrosSeleccionados] = useState('');
     const [estadoCheckBoxSeleccionado,setEstadoCheckBoxSeleccionado] = useState(false)
 
-
-    const clickCheck = (rubro) => {
-        setRubrosSeleccionados(rubro);
-        
-    }
+    const enviarDatosCheckbox = (rubro) => {console.log(rubro)}
 
     const obtenerPrecio = (id) => {
         data.map(
@@ -141,7 +137,7 @@ function App() {
                                     listaDeRubrosRepetidos,
                                     rubro
                                 )}
-                                clickCheck = {clickCheck}
+                                enviarDatosCheckbox = {enviarDatosCheckbox}
                             />
                         ))}
                         <h2 className="subtitulo-filtro">Por comercios</h2>
@@ -167,7 +163,7 @@ function App() {
                     </div>
                     <div className="listado-ofertas">
                         {data.map((productos) => (
-                            productos.rubro === rubrosSeleccionados &&
+                      
                             <Oferta
                                 imagen={productos.imagen}
                                 tituloOferta={productos.producto}

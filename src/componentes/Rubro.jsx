@@ -11,21 +11,14 @@ function Rubro(props) {
         setRubroCheckbox(e.target.attributes.label.value)
     }
 
-    const enviarDatosCheckbox = (e) => {
-        e.preventDefault()
-    }
-
-    
-
     return (
         <form className='contenedor-checkbox'
-            onSubmit={enviarDatosCheckbox}
+            onSubmit={()=>props.enviarDatosCheckbox(e => e)}
         >
             <input className="check-rubro"
                 label={props.nombreCheckbox} type='checkbox'
                 value={estadoCheckBox}
                 onChange={obtenerDatos}
-                onClick={()=>props.clickCheck(rubroCheckbox)}
             ></input>
             <label className='nombre-checkbox'>{props.nombreCheckbox}</label>
             <p className='contador-productos'>(<span>{props.cantidadProductos}</span>) </p>
