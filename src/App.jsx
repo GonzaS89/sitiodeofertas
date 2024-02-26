@@ -61,7 +61,7 @@ function App() {
     const [listaDeIdsVacia, setListaIdsVacia] = useState(true);
     const [longitudListaIds, setLongitudListaIds] = useState(0);
     const [idEliminada, setIdEliminada] = useState();
-    const [itemFuera, setItemFuera] = useState(false);
+    const [itemFuera, setItemFuera] = useState();
 
     const obtenerPrecio = (id) => {
         data.map(
@@ -81,6 +81,7 @@ function App() {
         setListaIds([...listaIds, idAgregada]);
         setLongitudListaIds(longitudListaIds + 1);
         obtenerPrecio(idAgregada);
+        
     };
 
     const idEliminadaDentroDeLista = (idEliminada) => {
@@ -95,10 +96,8 @@ function App() {
         return listaIds.map((id) => id !== idItem && true)
     }
 
-    const validarItemFuera = () => {!(listaIds.includes(idEliminada)) && setItemFuera(false)}
-
-    const confirmacionIdEliminada = () => {
-       return itemFuera
+    const validarItemFuera = () => {
+        return false
     }
 
     const mostrarCheckoutCarrito = () => {
@@ -106,12 +105,13 @@ function App() {
         longitudListaIds > 0 ? setListaIdsVacia(false) : setListaIdsVacia(true);
     };
 
+
     const cerrarCheckoutCarrito = () => {
         setCarritoClickeado(!carritoClickeado);
         idEliminadaDentroDeLista();
+        setListaIdsEliminadas(listaIds.filter((id) => id !== idEliminada));
     };
 
-    const compararIds = (id, idEliminada) => { return (id !== idEliminada ? true : false) }
 
     const quitarDeListaDeCarrito = (idEnviada) => {
         setIdEliminada(idEnviada);
@@ -121,13 +121,7 @@ function App() {
         setItemsCarrito(listaIds.length - 1);
         setLongitudListaIds(longitudListaIds - 1);
         setListaIdsEliminadas([...listaIdsEliminadas, idEnviada]);
-        validarItemFuera()
     } 
-
-    const itemDentro = (itemDentro) => {
-        setItemFuera(!itemDentro)
-    }
-
 
     return (
         <div className="App">
@@ -183,12 +177,8 @@ function App() {
                                 clickeadoBoton={clickeadoBotonCarrito}
                                 enviarId={recibirId}
                                 idEliminada={idEliminada}
-                                compararIds={compararIds}
-                                idEliminadaDentroDeLista = {idEliminadaDentroDeLista}
-                                devolverConfirmacionDeIngreso = {devolverConfirmacionDeIngreso}
-                                confirmacionIdEliminada = {confirmacionIdEliminada}
-                                itemFuera = {itemFuera}
-                                itemDentro = {itemDentro}
+                                listaIdsEliminadas = {listaIdsEliminadas}
+                                listaIds = {listaIds}
                             />
                         ))}
                     </div>
