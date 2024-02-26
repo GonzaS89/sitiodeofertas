@@ -32,6 +32,7 @@
     color:green;
     font-size: 17px;
     animation: entrada .5s;
+    pointer-events: none;
     &&:hover{
         background-color: green;
         color:white;

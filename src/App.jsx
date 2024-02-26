@@ -115,6 +115,7 @@ function App() {
 
     const quitarDeListaDeCarrito = (idEnviada) => {
         setIdEliminada(idEnviada);
+        setListaIdsEliminadas(listaIds.filter((id) => id !== idEliminada));
         restarPrecioProductoBorrado(idEnviada);
         setListaIds(listaIds.filter((id) => id !== idEnviada));
         longitudListaIds - 1 > 0 ? setListaIdsVacia(false) : setListaIdsVacia(true);
