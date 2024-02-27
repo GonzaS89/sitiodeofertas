@@ -1,27 +1,26 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import '../estilos/rubro.css';
 
-function Rubro(props) {
+function Rubro({ nombreCheckbox, cantidadProductos, enviarDatos }) {
 
-    const [estadoCheckBox, setEstadoCheckbox] = useState(false);
-    const [rubroCheckbox, setRubroCheckbox] = useState('');
 
     const obtenerDatos = (e) => {
-        setEstadoCheckbox(e.target.checked)
-        setRubroCheckbox(e.target.attributes.label.value)
+        const estadoCheck = e.target.checked;
+        const nombreCheck = e.target.attributes.label.value
+
+        enviarDatos(estadoCheck,nombreCheck)
     }
 
     return (
         <form className='contenedor-checkbox'
-            onSubmit={()=>props.enviarDatosCheckbox(e => e)}
         >
             <input className="check-rubro"
-                label={props.nombreCheckbox} type='checkbox'
-                value={estadoCheckBox}
+                label = {nombreCheckbox}
+                type='checkbox'
                 onChange={obtenerDatos}
             ></input>
-            <label className='nombre-checkbox'>{props.nombreCheckbox}</label>
-            <p className='contador-productos'>(<span>{props.cantidadProductos}</span>) </p>
+            <label className='nombre-checkbox'>{nombreCheckbox}</label>
+            <p className='contador-productos'>(<span>{cantidadProductos}</span>) </p>
         </form>
     )
 }

@@ -61,10 +61,15 @@ function App() {
     const [listaDeIdsVacia, setListaIdsVacia] = useState(true);
     const [longitudListaIds, setLongitudListaIds] = useState(0);
     const [idEliminada, setIdEliminada] = useState();
-    const [rubrosSeleccionados, setRubrosSeleccionados] = useState('');
+    const [rubrosSeleccionados, setRubrosSeleccionados] = useState([]);
     const [estadoCheckBoxSeleccionado,setEstadoCheckBoxSeleccionado] = useState(false)
 
-    const enviarDatosCheckbox = (rubro) => {console.log(rubro)}
+    const obtenerDatos = (estado,rubro) => {
+        estado ? 
+        setRubrosSeleccionados([...rubrosSeleccionados,rubro]) :
+        setRubrosSeleccionados(rubrosSeleccionados.filter((rubros) => rubros !== rubro))
+        
+    }
 
     const obtenerPrecio = (id) => {
         data.map(
@@ -137,7 +142,7 @@ function App() {
                                     listaDeRubrosRepetidos,
                                     rubro
                                 )}
-                                enviarDatosCheckbox = {enviarDatosCheckbox}
+                                enviarDatos = {obtenerDatos}
                             />
                         ))}
                         <h2 className="subtitulo-filtro">Por comercios</h2>
@@ -163,6 +168,8 @@ function App() {
                     </div>
                     <div className="listado-ofertas">
                         {data.map((productos) => (
+                            rubrosSeleccionados.map((rubros) => (
+                            rubros === productos.rubro &&
                       
                             <Oferta
                                 imagen={productos.imagen}
@@ -178,7 +185,7 @@ function App() {
                                 listaIdsEliminadas = {listaIdsEliminadas}
                                 listaIds = {listaIds}
                             />
-                        ))}
+                        ))))}
                     </div>
                 </div>
             </>

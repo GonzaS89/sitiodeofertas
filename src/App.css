@@ -30,6 +30,8 @@ body::-webkit-scrollbar{width: 10px;}
   align-items: center;
   position: relative;
   margin-top: 100px;
+  min-height: 100vh;
+
 
 }
 
