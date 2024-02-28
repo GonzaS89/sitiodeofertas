@@ -2,13 +2,14 @@ body::-webkit-scrollbar{width: 10px;}
 
 .App {
   text-align: center;
-  background: #FFF3CF;
+  background: #5E1675;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
+  box-sizing: border-box;
 
   /* justify-content: center; */
 }
@@ -30,17 +31,43 @@ body::-webkit-scrollbar{width: 10px;}
   align-items: center;
   position: relative;
   margin-top: 100px;
+  width: 100%;
   min-height: 100vh;
+}
 
+.contenedor-categorias{
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
 
+.categorias-contenedor{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulo-categorias{
+  text-align: center;
+    text-transform: uppercase;
+    color: rgb(214, 197, 197);
+    width: 100%;
+    font-size: 25px;
+    margin-bottom: 40px;
 }
 
 .titulo-filtro, .subtitulo-filtro{
-  margin: 25px 0;
+  margin: 15px 0;
   font-family: var(--fuentePrincipal);
   font-size:18px;
   text-transform: uppercase;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .subtitulo-filtro{

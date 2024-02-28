@@ -7,29 +7,28 @@
     width: 100px;
     position: absolute;
     right: 0;
-    margin-right: 20px;
 }
 
 .contador-productos-carrito{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background-color:aliceblue;
     border-radius: 50%;
     position: absolute;
     top: 0;
     right: 0;
     color:black;
-    transform: translateY(10px);
+    transform: translate(-5px, 10px);
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .carrito-logo{
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     right: 0;
     margin-right: 20px;

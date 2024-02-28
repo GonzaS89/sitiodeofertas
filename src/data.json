@@ -19,7 +19,6 @@
         "id" : "800"
     },
     {
-        "imagen" : "patamuslo",
         "producto" : "3 kgs de patamuslo",
         "precio" : 3800,
         "comercio" : "Polleria Pollo",
@@ -28,7 +27,6 @@
         "id" : "454"
     },
     {
-        "imagen" : "supremas",
         "producto" : "1 Kg de Supremas",
         "precio" : 3000,
         "comercio" : "Polleria Carlos",
@@ -52,6 +50,22 @@
         "comercio" : "Despensa El Perro",
         "domicilioComercio" : "B° La Flor",
         "rubro" : "lacteos",
+        "id" : "964"
+    },
+    {
+        "producto" : "1 Kg de jamon cocido",
+        "precio" : 3000,
+        "comercio" : "Despensa El Perro",
+        "domicilioComercio" : "B° La Flor",
+        "rubro" : "fiambreria",
+        "id" : "964"
+    },
+    {
+        "producto" : "1 Kg de pan frances",
+        "precio" : 1500,
+        "comercio" : "Panaderia Carlos",
+        "domicilioComercio" : "B° La Villa",
+        "rubro" : "panaderia",
         "id" : "964"
     }
 ]

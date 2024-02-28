@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Marhey:wght@300..700&display=swap');
+
+:root{
+    --fuenteCategoria : "Marhey", sans-serif;
+}
+
+
+.categoria-contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 200px;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.447);
+    font-family: var(--fuenteCategoria);
+}
+
+.titulo-categoria{
+    position: absolute;
+    z-index: 10;
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-shadow: 2px 2px black;
+    transform: rotate(-22.5deg);
+}
+
+.imagen-categoria{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    filter: brightness(45%) blur(0px);
+}
