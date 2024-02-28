@@ -8,12 +8,14 @@ function Header (props) {
         <div className='header-contenedor'>
             <img
             className='header-logo' 
-            src={require('../iconos/logo-lokerilotene.png')}/>
+            src={require('../iconos/logo-lokerilotene.png')}
+            alt="logo-pagina"/>
             <div className="carrito-contenedor">
             <span className="contador-productos-carrito">{props.cantidadItems}</span>
             <img className="carrito-logo" 
             onClick={props.clickEnCarrito}
-            src={require('../iconos/carrito.png')}/>
+            src={require('../iconos/carrito.png')}
+            alt="carrito-logo"/>
         </div>
         </div>
     )

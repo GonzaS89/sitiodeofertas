@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./componentes/Header";
 import Rubro from "./componentes/Rubro";
 import Oferta from "./componentes/Oferta";
-import CheckoutCarrito from "./componentes/CheckoutCarrito";
 import Itemcarrito from "./componentes/Itemcarrito";
 import data from "./data.json";
 import { Categoria } from "./componentes/Categoria";
@@ -92,7 +91,6 @@ function App() {
     const [longitudListaIds, setLongitudListaIds] = useState(0);
     const [idEliminada, setIdEliminada] = useState();
     const [rubrosSeleccionados, setRubrosSeleccionados] = useState([]);
-    const [estadoCheckBoxSeleccionado,setEstadoCheckBoxSeleccionado] = useState(false)
 
     const obtenerDatosCheckbox = (estadoCheckbox,rubroCheckbox) => {
         estadoCheckbox ? 
@@ -215,7 +213,6 @@ function App() {
                         {data.map((productos) => (
                             rubrosSeleccionados.map((rubros) => (
                             rubros === productos.rubro &&
-                      
                             <Oferta
                                 imagen={productos.imagen}
                                 tituloOferta={productos.producto}
@@ -248,6 +245,7 @@ function App() {
                             className="botondecierre"
                             onClick={cerrarCheckoutCarrito}
                             src={require("./iconos/cruz.png")}
+                            alt="boton-cierre"
                         />
                         <h1 className="titulo-productosagregados">
                             {listaDeIdsVacia

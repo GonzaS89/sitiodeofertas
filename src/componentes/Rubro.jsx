@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../estilos/rubro.css';
 
 function Rubro({ nombreCheckbox, cantidadProductos, enviarDatos }) {
