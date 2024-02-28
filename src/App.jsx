@@ -64,10 +64,10 @@ function App() {
     const [rubrosSeleccionados, setRubrosSeleccionados] = useState([]);
     const [estadoCheckBoxSeleccionado,setEstadoCheckBoxSeleccionado] = useState(false)
 
-    const obtenerDatos = (estado,rubro) => {
-        estado ? 
-        setRubrosSeleccionados([...rubrosSeleccionados,rubro]) :
-        setRubrosSeleccionados(rubrosSeleccionados.filter((rubros) => rubros !== rubro))
+    const obtenerDatosCheckbox = (estadoCheckbox,rubroCheckbox) => {
+        estadoCheckbox ? 
+        setRubrosSeleccionados([...rubrosSeleccionados,rubroCheckbox]) :
+        setRubrosSeleccionados(rubrosSeleccionados.filter((rubros) => rubros !== rubroCheckbox))
         
     }
 
@@ -142,10 +142,10 @@ function App() {
                                     listaDeRubrosRepetidos,
                                     rubro
                                 )}
-                                enviarDatos = {obtenerDatos}
+                                enviarDatos = {obtenerDatosCheckbox}
                             />
                         ))}
-                        <h2 className="subtitulo-filtro">Por comercios</h2>
+                        {/* <h2 className="subtitulo-filtro">Por comercios</h2>
                         {listaDeComercios.map((comercio) => (
                             <Rubro
                                 nombreCheckbox={comercio}
@@ -154,8 +154,8 @@ function App() {
                                     comercio
                                 )}
                             />
-                        ))}
-                        <h2 className="subtitulo-filtro">Por barrios</h2>
+                        ))} */}
+                        {/* <h2 className="subtitulo-filtro">Por barrios</h2>
                         {listaDeBarrios.map((barrio) => (
                             <Rubro
                                 nombreCheckbox={barrio}
@@ -164,7 +164,7 @@ function App() {
                                     barrio
                                 )}
                             />
-                        ))}
+                        ))} */}
                     </div>
                     <div className="listado-ofertas">
                         {data.map((productos) => (

@@ -40,12 +40,13 @@ body::-webkit-scrollbar{width: 10px;}
   font-family: var(--fuentePrincipal);
   font-size:18px;
   text-transform: uppercase;
+  padding: 0 10px;
 }
 
 .subtitulo-filtro{
   font-size: 15px;
   margin:0 ;
-  margin: 20px 0 0 20px;
+  margin: 20px 0 0 10px;
   text-align: left;
 }
 

@@ -4,7 +4,7 @@ import '../estilos/rubro.css';
 function Rubro({ nombreCheckbox, cantidadProductos, enviarDatos }) {
 
 
-    const obtenerDatos = (e) => {
+    const obtenerDatosCheckbox= (e) => {
         const estadoCheck = e.target.checked;
         const nombreCheck = e.target.attributes.label.value
 
@@ -17,7 +17,7 @@ function Rubro({ nombreCheckbox, cantidadProductos, enviarDatos }) {
             <input className="check-rubro"
                 label = {nombreCheckbox}
                 type='checkbox'
-                onChange={obtenerDatos}
+                onChange={obtenerDatosCheckbox}
             ></input>
             <label className='nombre-checkbox'>{nombreCheckbox}</label>
             <p className='contador-productos'>(<span>{cantidadProductos}</span>) </p>

@@ -51,7 +51,7 @@
     justify-content: center;
     height: 40%;  
     && img{
-        width: 80%;
+        width: 50%;
         height: 80%;
     }
 }

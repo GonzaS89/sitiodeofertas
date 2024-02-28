@@ -17,7 +17,7 @@ function Oferta(props) {
       <div className="contenedor-imagen-oferta">
         <img
           className="imagen-oferta"
-          src={require(`../imagenes/${props.imagen}.png`)}
+          src={require(`../iconos/${props.rubro}.png`)}
           alt="foto"
         />
       </div>
@@ -27,7 +27,7 @@ function Oferta(props) {
         <div className="comercio-odferta">
           <div className="comercio-nombre-ubicacion">
             <span className="logo-rubro-comercio">
-              <img src={require(`../iconos/${props.rubro}.png`)} />
+              <img src={require('../iconos/tienda2.png')} />
             </span>
             <h3 className="nombre-comercio-oferta">{props.comercioOferta}</h3>
           </div>
