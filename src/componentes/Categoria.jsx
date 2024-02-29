@@ -3,19 +3,17 @@ import '../estilos/Categoria.css'
 
 export const Categoria = (props) => {
 
-
+    
     return (
         <>
-
             <div className="categoria-contenedor"
-                 onClick={()=> props.enviarCategoria(props.titulo)}>
+                 onClick={()=> props.enviarCategoria(props.titulo,window.scrollTo(0,0))}>
                 <h1 className="titulo-categoria">{props.titulo}</h1>
                 <img
                     className='imagen-categoria'
                     src={props.imagen}
                     alt='imagen-categoria'/>
             </div>
-
         </>
     )
 }

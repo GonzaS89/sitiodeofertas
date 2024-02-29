@@ -11,28 +11,28 @@ import { Categoria } from "./componentes/Categoria";
 
 const listaDeImagenes = [
     {
-        "nombre" : "carniceria",
-        "url" : "https://s1.eestatic.com/2019/03/26/ciencia/nutricion/carnes-dietas-nutricion_386222785_118855389_1706x960.jpg"
+        "nombre": "carniceria",
+        "url": "https://s1.eestatic.com/2019/03/26/ciencia/nutricion/carnes-dietas-nutricion_386222785_118855389_1706x960.jpg"
     },
     {
-        "nombre" : "polleria",
-        "url" : "https://www.diariodecultura.com.ar/wp-content/uploads/2022/08/polleria.jpg"
+        "nombre": "polleria",
+        "url": "https://www.diariodecultura.com.ar/wp-content/uploads/2022/08/polleria.jpg"
     },
     {
-        "nombre" : "verduleria",
-        "url" : "https://fotos.perfil.com/2021/01/15/trim/987/555/como-impacto-la-inflacion-en-las-verdulerias-portenas-1114624.jpg?webp"
+        "nombre": "verduleria",
+        "url": "https://fotos.perfil.com/2021/01/15/trim/987/555/como-impacto-la-inflacion-en-las-verdulerias-portenas-1114624.jpg?webp"
     },
     {
-        "nombre" : "lacteos",
-        "url" : "https://clubdelicatessen.com/wp-content/uploads/2021/05/productos-lacteos.jpg"
+        "nombre": "lacteos",
+        "url": "https://clubdelicatessen.com/wp-content/uploads/2021/05/productos-lacteos.jpg"
     },
     {
-        "nombre" : "fiambreria",
-        "url" : "https://madrepata.com.ar/wp-content/uploads/2017/05/54.jpg"
+        "nombre": "fiambreria",
+        "url": "https://madrepata.com.ar/wp-content/uploads/2017/05/54.jpg"
     },
     {
-        "nombre" : "panaderia",
-        "url" : "https://www.colbake.com/wp-content/uploads/2019/01/tradicion-maquinaria-panaderia.jpg"
+        "nombre": "panaderia",
+        "url": "https://www.colbake.com/wp-content/uploads/2019/01/tradicion-maquinaria-panaderia.jpg"
     }
 ]
 
@@ -92,11 +92,11 @@ function App() {
     const [idEliminada, setIdEliminada] = useState();
     const [rubrosSeleccionados, setRubrosSeleccionados] = useState([]);
 
-    const obtenerDatosCheckbox = (estadoCheckbox,rubroCheckbox) => {
-        estadoCheckbox ? 
-        setRubrosSeleccionados([...rubrosSeleccionados,rubroCheckbox]) :
-        setRubrosSeleccionados(rubrosSeleccionados.filter((rubros) => rubros !== rubroCheckbox))
-        
+    const obtenerDatosCheckbox = (estadoCheckbox, rubroCheckbox) => {
+        estadoCheckbox ?
+            setRubrosSeleccionados([...rubrosSeleccionados, rubroCheckbox]) :
+            setRubrosSeleccionados(rubrosSeleccionados.filter((rubros) => rubros !== rubroCheckbox))
+
     }
 
     const obtenerPrecio = (id) => {
@@ -117,11 +117,11 @@ function App() {
         setListaIds([...listaIds, idAgregada]);
         setLongitudListaIds(longitudListaIds + 1);
         obtenerPrecio(idAgregada);
-        
+
     };
 
     const idEliminadaDentroDeLista = (idEliminada) => {
-      return listaIdsEliminadas.map((id) => id !== idEliminada && true)
+        return listaIdsEliminadas.map((id) => id !== idEliminada && true)
     }
 
     const clickeadoBotonCarrito = () => {
@@ -150,13 +150,15 @@ function App() {
         setItemsCarrito(listaIds.length - 1);
         setLongitudListaIds(longitudListaIds - 1);
         setListaIdsEliminadas([...listaIdsEliminadas, idEnviada]);
-    } 
+    }
 
     const [categoria, setCategoria] = useState()
 
     const recibirCategoria = (categoriaClickeada) => {
         setCategoria(categoriaClickeada)
     }
+
+    const setearCategoria = () => {setCategoria(undefined)}
 
     return (
         <div className="App">
@@ -176,7 +178,7 @@ function App() {
                                     listaDeRubrosRepetidos,
                                     rubro
                                 )}
-                                enviarDatos = {obtenerDatosCheckbox}
+                                enviarDatos={obtenerDatosCheckbox}
                             />
                         ))}
                         {/* <h2 className="subtitulo-filtro">Por comercios</h2>
@@ -203,18 +205,18 @@ function App() {
                     <div className="contenedor-categorias">
                         <h1 className="titulo-categorias">Elegí una categoría</h1>
                         <div className="categorias-contenedor">
-                        {listaDeRubros.map((rubro) =>
-                            listaDeImagenes.map((imagen) => 
-                            rubro === imagen.nombre &&
-                            <Categoria 
-                            titulo = {rubro}
-                            imagen = {imagen.url}
-                            enviarCategoria = {recibirCategoria}
-                            />
-                        ))}
+                            {listaDeRubros.map((rubro) =>
+                                listaDeImagenes.map((imagen) =>
+                                    rubro === imagen.nombre &&
+                                    <Categoria
+                                        titulo={rubro}
+                                        imagen={imagen.url}
+                                        enviarCategoria={recibirCategoria}
+                                    />
+                                ))}
                         </div>
                     </div>
-                    <div className={categoria !== undefined ? 'listado-ofertas visible' : 'listado-ofertas'}>
+                    <div className={categoria !== undefined ? 'listado-ofertas visible mostrarDesdeDerecha' : 'listado-ofertas moverHaciaIzquierda'}>
                         {data.map((productos) => (
                             categoria === productos.rubro &&
                             <Oferta
@@ -228,8 +230,8 @@ function App() {
                                 clickeadoBoton={clickeadoBotonCarrito}
                                 enviarId={recibirId}
                                 idEliminada={idEliminada}
-                                listaIdsEliminadas = {listaIdsEliminadas}
-                                listaIds = {listaIds}
+                                listaIdsEliminadas={listaIdsEliminadas}
+                                listaIds={listaIds}
                             />
                         ))}
                     </div>
@@ -240,7 +242,7 @@ function App() {
                 <div
                     className={
                         carritoClickeado
-                            ? "checkout-contenedor visible"
+                            ? "checkout-contenedor visible entrarPantallaCheckout"
                             : "checkout-contenedor ocultar"
                     }
                 >
@@ -286,6 +288,18 @@ function App() {
                     </div>
                 </div>
             </>
+            <div className="contenedor-botones">
+                <img
+                className="botones-android" 
+                src={require('./iconos/triangulo.png')} alt="botones-android"
+                onClick={setearCategoria} />
+                <img
+                className="botones-android" 
+                src={require('./iconos/circulo.png')} alt="botones-android" />
+                <img
+                className="botones-android" 
+                src={require('./iconos/cuadrado.png')} alt="botones-android" />
+            </div>
         </div>
     );
 }
