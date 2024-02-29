@@ -7,12 +7,12 @@
 
 .botonCarrito{
     width: 90%;
-    height: 50px;
+    height: 35px;
     background-color:#FDE767;
-    border-radius: 25px;
+    border-radius: 10px;
     text-transform: uppercase;
     font-family:var(--fuentePrincipal);
-    font-size: 13px;
+    font-size: 10px;
     font-weight: bold;
     border: 2px solid;
     cursor: pointer;
@@ -30,13 +30,9 @@
     background-color: transparent;
     border: none;
     color:green;
-    font-size: 17px;
+    font-size: 15px;
     animation: entrada .5s;
     pointer-events: none;
-    &&:hover{
-        background-color: green;
-        color:white;
-    }
 }
 
 @keyframes entrada {

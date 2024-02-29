@@ -152,6 +152,12 @@ function App() {
         setListaIdsEliminadas([...listaIdsEliminadas, idEnviada]);
     } 
 
+    const [categoria, setCategoria] = useState()
+
+    const recibirCategoria = (categoriaClickeada) => {
+        setCategoria(categoriaClickeada)
+    }
+
     return (
         <div className="App">
             <Header
@@ -203,16 +209,14 @@ function App() {
                             <Categoria 
                             titulo = {rubro}
                             imagen = {imagen.url}
+                            enviarCategoria = {recibirCategoria}
                             />
                         ))}
                         </div>
-                        
-                        
                     </div>
-                    <div className="listado-ofertas">
+                    <div className={categoria !== undefined ? 'listado-ofertas visible' : 'listado-ofertas'}>
                         {data.map((productos) => (
-                            rubrosSeleccionados.map((rubros) => (
-                            rubros === productos.rubro &&
+                            categoria === productos.rubro &&
                             <Oferta
                                 imagen={productos.imagen}
                                 tituloOferta={productos.producto}
@@ -227,7 +231,7 @@ function App() {
                                 listaIdsEliminadas = {listaIdsEliminadas}
                                 listaIds = {listaIds}
                             />
-                        ))))}
+                        ))}
                     </div>
                 </div>
             </>
