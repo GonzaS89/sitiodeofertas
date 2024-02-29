@@ -47,7 +47,7 @@ function Oferta(props) {
       <div className="botonCarrito-contenedor">
         <button
           className={
-            !props.listaIdsEliminadas.includes(props.idEliminada) &&  props.listaIds.includes(props.id) && itemDentro ? "botonCarrito boton-productoagregado" : "botonCarrito"
+            (!props.listaIdsEliminadas.includes(props.idEliminada) || props.productoDisponible) &&  props.listaIds.includes(props.id) && itemDentro ? "botonCarrito boton-productoagregado" : "botonCarrito"
           }
           onClick={() =>
             props.clickeadoBoton(
@@ -57,7 +57,7 @@ function Oferta(props) {
             )
           }
         >
-        {!props.listaIdsEliminadas.includes(props.idEliminada) &&  props.listaIds.includes(props.id) && itemDentro ? "Agregado" : "Agregar a lista de pedidos" }
+        {(!props.listaIdsEliminadas.includes(props.idEliminada) || props.productoDisponible) &&  props.listaIds.includes(props.id) && itemDentro ? "Agregado" : "Agregar a lista de pedidos" }
         </button>
       </div>
     </div>

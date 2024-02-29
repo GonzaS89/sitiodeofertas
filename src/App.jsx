@@ -131,6 +131,7 @@ function App() {
     const mostrarCheckoutCarrito = () => {
         setCarritoClickeado(!carritoClickeado);
         longitudListaIds > 0 ? setListaIdsVacia(false) : setListaIdsVacia(true);
+        
     };
 
 
@@ -138,6 +139,8 @@ function App() {
         setCarritoClickeado(!carritoClickeado);
         idEliminadaDentroDeLista();
         setListaIdsEliminadas(listaIds.filter((id) => id !== idEliminada));
+        console.log(listaProductosPorCategoria,listaIds)
+        
     };
 
 
@@ -154,18 +157,29 @@ function App() {
 
     const [categoriaClickeada, setCategoriaClickeada] = useState();
     const [listaProductosPorCategoria, setListaProductosPorCategoria] = useState([]);
+    const [productoDisponible, setProductoDisponible] = useState(true)
 
     const agregarProductoPorCategoria = (categoria) => {
         data.map((producto) => producto.rubro === categoria &&
         setListaProductosPorCategoria([...listaProductosPorCategoria, producto])
     )}
 
+    const comprobarExistenciaIdEliminada = () => {
+        listaProductosPorCategoria.map((producto) => 
+           listaIds.includes(producto.id) && setProductoDisponible(true)
+        )
+    }
+
     const recibirCategoria = (categoriaClickeada) => {
         setCategoriaClickeada(categoriaClickeada);
         agregarProductoPorCategoria(categoriaClickeada)
+        comprobarExistenciaIdEliminada()
     }
 
-    const setearCategoria = () => {setCategoriaClickeada(undefined)}
+    const setearCategoria = () => {
+        setCategoriaClickeada(undefined)
+        setListaProductosPorCategoria([])
+    }
 
     return (
         <div className="App">
@@ -239,6 +253,8 @@ function App() {
                                 idEliminada={idEliminada}
                                 listaIdsEliminadas={listaIdsEliminadas}
                                 listaIds={listaIds}
+                                listaProductosPorCategoria = {listaProductosPorCategoria}
+                                productoDisponible = {productoDisponible}
                             />
                         ))}
                     </div>
