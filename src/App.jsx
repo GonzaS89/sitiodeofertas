@@ -152,13 +152,20 @@ function App() {
         setListaIdsEliminadas([...listaIdsEliminadas, idEnviada]);
     }
 
-    const [categoria, setCategoria] = useState()
+    const [categoriaClickeada, setCategoriaClickeada] = useState();
+    const [listaProductosPorCategoria, setListaProductosPorCategoria] = useState([]);
+
+    const agregarProductoPorCategoria = (categoria) => {
+        data.map((producto) => producto.rubro === categoria &&
+        setListaProductosPorCategoria([...listaProductosPorCategoria, producto])
+    )}
 
     const recibirCategoria = (categoriaClickeada) => {
-        setCategoria(categoriaClickeada)
+        setCategoriaClickeada(categoriaClickeada);
+        agregarProductoPorCategoria(categoriaClickeada)
     }
 
-    const setearCategoria = () => {setCategoria(undefined)}
+    const setearCategoria = () => {setCategoriaClickeada(undefined)}
 
     return (
         <div className="App">
@@ -216,9 +223,9 @@ function App() {
                                 ))}
                         </div>
                     </div>
-                    <div className={categoria !== undefined ? 'listado-ofertas visible mostrarDesdeDerecha' : 'listado-ofertas moverHaciaIzquierda'}>
+                    <div className={categoriaClickeada !== undefined ? 'listado-ofertas visible mostrarDesdeDerecha' : 'listado-ofertas ocultar moverHaciaIzquierda'}>
                         {data.map((productos) => (
-                            categoria === productos.rubro &&
+                            categoriaClickeada === productos.rubro &&
                             <Oferta
                                 imagen={productos.imagen}
                                 tituloOferta={productos.producto}
